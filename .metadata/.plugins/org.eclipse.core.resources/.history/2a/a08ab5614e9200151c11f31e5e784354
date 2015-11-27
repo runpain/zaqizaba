@@ -1,0 +1,239 @@
+package cn.zucc.dao;
+
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+
+import cn.zucc.entity.Item;
+import cn.zucc.util.page;
+
+public class ItemBiz  extends BaseBiz {
+	public void addPress(Item item) {
+		try {
+			addressUrl();
+			String sql = "insert into item(oid,bid,createDate,count,price,totalPrice) values(?,?,?,?,?,?)";
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, item.getOid());
+			psmt.setInt(2, item.getBid());
+			psmt.setDate(3, item.getCreateDate());
+			psmt.setInt(4, item.getCount());
+			psmt.setDouble(5, item.getPrice());
+			psmt.setDouble(6, item.getTotalPrice());
+		
+			System.out.println(sql);
+			psmt.execute();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			System.out.println("ÃÌº”¥ÌŒÛ");
+			e.printStackTrace();
+		} finally {
+			myClose();
+		}
+	}
+	
+	public List<Item> findAll(int pageNo) {
+		List<Item> list = new ArrayList<Item>();
+		try {
+			addressUrl();
+			String sql = "select * from item limit ?,?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, page.getStart(pageNo));
+			psmt.setInt(2, page.pageSize);
+			psmt.execute();
+			rs = psmt.executeQuery();
+			while (rs.next()) {
+				Item item = new Item();
+				item.setBid(rs.getInt("iid"));
+				item.setBid(rs.getInt("oid"));
+				item.setBid(rs.getInt("bid"));
+				item.setCreateDate(rs.getDate("createDate"));
+				item.setCount(rs.getInt("count"));
+				item.setPrice(rs.getDouble("price"));
+				item.setTotalPrice(rs.getDouble("totalPrice"));
+				list.add(item);
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("≤È—Ø¥ÌŒÛ");
+			e.printStackTrace();
+		} finally {
+			myClose();
+		}
+		return list;
+	}
+	
+	public List<Item> findAll(){
+		List<Item> list = new ArrayList<Item>();
+		try {
+			addressUrl();
+			String sql = "select * from item ";
+			psmt = conn.prepareStatement(sql);
+			psmt.execute();
+			rs = psmt.executeQuery();
+			while(rs.next()){
+				Item item = new Item();
+				item.setBid(rs.getInt("iid"));
+				item.setBid(rs.getInt("oid"));
+				item.setBid(rs.getInt("bid"));
+				item.setCreateDate(rs.getDate("createDate"));
+				item.setCount(rs.getInt("count"));
+				item.setPrice(rs.getDouble("price"));
+				item.setTotalPrice(rs.getDouble("totalPrice"));
+				list.add(item);
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("≤È—Ø¥ÌŒÛ");
+			e.printStackTrace();
+		}finally{
+			myClose();
+	}
+		return list;
+	}
+	
+	public Item FindById(int iid) {
+		Item item= null;
+		try {
+			addressUrl();
+			String sql = "select * from item where iid =?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, iid);
+			rs = psmt.executeQuery();
+			if (rs.next()) {
+				item = new Item();
+				item.setBid(rs.getInt("iid"));
+				item.setBid(rs.getInt("oid"));
+				item.setBid(rs.getInt("bid"));
+				item.setCreateDate(rs.getDate("createDate"));
+				item.setCount(rs.getInt("count"));
+				item.setPrice(rs.getDouble("price"));
+				item.setTotalPrice(rs.getDouble("totalPrice"));
+			}
+		} catch (Exception e) {
+			System.out.println("≤È—Ø ß∞‹");
+			// TODO: handle exception
+		} finally {
+			myClose();
+		}
+		return item;
+	}
+
+
+
+	public Book updatePress(Book book) {
+		try {
+			addressUrl();
+			String sql = "update book set bookName =?,price=?,images=?,stock=? where bid =?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, item.getBookName());
+			psmt.setDouble(2, item.getPrice());
+			psmt.setString(3, item.getImages());
+			psmt.setInt(4, item.getStock());
+			psmt.setInt(5, item.getBid());
+			System.out.println(psmt);
+			psmt.execute();
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("∏¸–¬ ß∞‹");
+		} finally {
+			myClose();
+		}
+		return book;
+	}
+	
+	public List<Book> findBykeyword(String keyword,int pageNo){
+		List<Book> list = new ArrayList<Book>();
+		try {
+			addressUrl();
+			StringBuffer sb = new StringBuffer();
+			sb.append("select * from book where bookName like '%");
+			sb.append(keyword);
+			sb.append("%' or price like '%");
+			sb.append(keyword);
+			sb.append("%' or images like '%");
+			sb.append(keyword);
+			sb.append("%' or stock like '%");
+			sb.append(keyword);
+			sb.append("%'");
+			sb.append("limit ?,?");
+			psmt = conn.prepareStatement(sb.toString());
+			psmt.setInt(1, page.getStart(pageNo));
+			psmt.setInt(2, page.pageSize);
+			System.out.println(psmt);
+			
+			rs = psmt.executeQuery();
+			while(rs.next()){
+				Book book = new Book();
+				item.setBid(rs.getInt("bid"));
+				item.setBookName(rs.getString("bookName"));
+				item.setPrice(rs.getDouble("price"));
+				item.setImages(rs.getString("images"));
+				item.setStock(rs.getInt("stock"));
+				list.add(book);
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("≤È—Ø¥ÌŒÛ");
+			e.printStackTrace();
+		}finally{
+			myClose();
+	}
+		return list;
+	}
+	
+	
+	public int findCount() {
+		int count = 0;
+		try {
+			addressUrl();
+			String sql = "select count(*) as totalCount from book";
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			if (rs.next()) {
+				count = rs.getInt("totalCount");
+			}
+		} catch (Exception e) {
+			System.out.println("≤È—Ø ß∞‹");
+			// TODO: handle exception
+		} finally {
+			myClose();
+		}
+		return count;
+	}
+	
+	
+	public int findCountByCondition(String keyword,int pageNo){
+		int count = 0;
+		try {
+			addressUrl();
+			StringBuffer sb = new StringBuffer();
+			sb.append("select count(*) as totalCount from book where bookName like '%");
+			sb.append(keyword);
+			sb.append("%' or price like '%");
+			sb.append(keyword);
+			sb.append("%' or images like '%");
+			sb.append(keyword);
+			sb.append("%' or stock like '%");
+			sb.append(keyword);
+			sb.append("%'");
+		
+			psmt = conn.prepareStatement(sb.toString());
+		
+			rs = psmt.executeQuery();
+			if(rs.next()){
+				count = rs.getInt("totalCount");
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("≤È—Ø¥ÌŒÛ");
+			e.printStackTrace();
+		}finally{
+			myClose();
+	}
+		return count;
+	}
+	
+	
+}
+	

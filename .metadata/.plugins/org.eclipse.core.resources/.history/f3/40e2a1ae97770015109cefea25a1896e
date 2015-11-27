@@ -1,0 +1,23 @@
+package cn.zucc.day03;
+
+
+public class Test {
+	/*public String test (String fruit){
+		String juice = fruit + "汁";
+		return juice;
+	}
+		String[]names = new String [30];
+		public void addname (String name){			
+		}
+	public void showNames(){
+		
+	}*/
+	String [] names = new String [30];
+	public void addname(String name){
+		
+	}
+     public void showNames() {
+	System.out.println("客户姓名列表:");
+	System.out.println(names);
+     }
+	}

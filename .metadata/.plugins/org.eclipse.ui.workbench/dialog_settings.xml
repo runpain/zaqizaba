@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.internal.QuickAccess">
+		<item value="true" key="org.eclipse.ui.internal.quickaccess.QuickAccessDialogDIALOG_USE_PERSISTED_SIZE"/>
+		<item value="350" key="org.eclipse.ui.internal.quickaccess.QuickAccessDialogDIALOG_WIDTH"/>
+		<item value="false" key="org.eclipse.ui.internal.quickaccess.QuickAccessDialogDIALOG_USE_PERSISTED_LOCATION"/>
+		<item value="423" key="org.eclipse.ui.internal.quickaccess.QuickAccessDialogDIALOG_HEIGHT"/>
+		<list key="orderedProviders">
+		</list>
+		<list key="textArray">
+		</list>
+		<list key="orderedElements">
+		</list>
+		<list key="textEntries">
+		</list>
+	</section>
+	<section name="WorkbenchPreferenceDialogSettings">
+		<item value="4" key="DIALOG_Y_ORIGIN"/>
+		<item value="36" key="DIALOG_X_ORIGIN"/>
+	</section>
+	<section name="NewWizardAction">
+		<item value="org.eclipse.jdt.ui.wizards.NewPackageCreationWizard" key="NewWizardSelectionPage.STORE_SELECTED_ID"/>
+		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
+			<item value="org.eclipse.jdt.ui.java"/>
+		</list>
+	</section>
+	<section name="ShowViewDialog">
+		<item value="354" key="DIALOG_WIDTH"/>
+		<item value="org.eclipse.wst.jsdt.ui.TypeHierarchy" key="ShowViewDialog.STORE_SELECTED_VIEW_ID"/>
+		<item value="161" key="DIALOG_Y_ORIGIN"/>
+		<item value="547" key="DIALOG_X_ORIGIN"/>
+		<item value="418" key="DIALOG_HEIGHT"/>
+		<item value="1|宋体|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|宋体" key="DIALOG_FONT_NAME"/>
+		<list key="ShowViewDialog.STORE_EXPANDED_CATEGORIES_ID">
+			<item value="org.eclipse.jdt.ui.java.browsing"/>
+			<item value="org.maven.ide.eclipse.views.repositories"/>
+			<item value="com.genuitec.eclipse.views.myEclipseAJAXCategory"/>
+			<item value="com.genuitec.eclipse.views.myEclipseCategory"/>
+			<item value="org.eclipse.wst.jsdt.ui.java"/>
+			<item value="com.genuitec.eclipse.reporting.views.category"/>
+			<item value="com.genuitec.eclipse.views.myEclipseMatisseCategory"/>
+			<item value="com.genuitec.eclipse.views.myEclipseUMLCategory"/>
+			<item value="org.eclipse.pde.ui"/>
+			<item value="org.eclipse.team.ui"/>
+		</list>
+	</section>
+</section>

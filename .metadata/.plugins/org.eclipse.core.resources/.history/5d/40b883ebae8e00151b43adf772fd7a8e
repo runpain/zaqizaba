@@ -1,0 +1,47 @@
+package cn.zucc.service;
+
+import java.util.List;
+
+
+import cn.zucc.dao.ShoppingCarBiz;
+import cn.zucc.entity.ShoppingCar;
+
+
+public class ShoppingCarBizImpl {
+ShoppingCarBiz shoppingCarBiz = new ShoppingCarBiz();
+	
+	public void addpress(ShoppingCar shoppingCar){
+		shoppingCarBiz.AddShoppingCar(shoppingCar);
+	}
+	
+	public List<ShoppingCar> FindAll(int pageNo) {
+		return shoppingCarBiz.FindAll();
+	}
+
+	public List<Book> findAll() {
+		return shoppingCarBiz.findAll();
+	}
+	
+	public Book findById(int bid){
+		return shoppingCarBiz.FindById(bid);
+	}
+	
+	public Book updatePress(Book book){
+		return shoppingCarBiz.updatePress(book);
+	}
+	 
+	public List<Book>  searchPress (String  keyword,int pageNo){
+		 return shoppingCarBiz.findBykeyword(keyword,pageNo);
+	}
+	
+	public int getTotalCount(){
+		return shoppingCarBiz.findCount();
+	}
+	
+	
+	public int searchCount(String keyword,int pageNo){
+		return shoppingCarBiz.findCountByCondition(keyword, pageNo);
+	}
+}
+	
+}

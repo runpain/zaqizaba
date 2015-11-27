@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Layout resource="/firstservlet/WebRoot/WEB-INF/web.xml">
+ <TreeFormPage>
+  <Memento type="FileWebApp25">
+   <Memento collapsed="false" type="Web Descriptor 2.5"/>
+   <Memento collapsed="false" type="Context Params"/>
+   <Memento collapsed="false" type="Advanced"/>
+  </Memento>
+  <Memento type="WebAppFolderServices">
+   <Memento collapsed="false" type="Services"/>
+  </Memento>
+  <Memento type="WebAppFolderResources">
+   <Memento collapsed="false" type="Resource Env Refs"/>
+   <Memento collapsed="false" type="Resource Refs"/>
+  </Memento>
+  <Memento type="">
+   <Memento type="Properties Editor"/>
+  </Memento>
+ </TreeFormPage>
+</Layout>

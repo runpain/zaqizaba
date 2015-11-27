@@ -1,0 +1,74 @@
+package cn.zucc.controller;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import cn.zucc.entity.UserInfo;
+import cn.zucc.service.UserInfoBizImpl;
+
+
+
+public class UserInfoSevlet extends HttpServlet {
+
+	UserInfoBizImpl userInfoBizImpl = new UserInfoBizImpl();
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		// TODO Auto-generated method stub
+	doPost(req, resp);
+	}
+
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		String flag=req.getParameter("flag");
+		System.out.println(flag);
+		if ("login".equals(flag)) {
+			
+			login(req, resp);
+		}
+		else if ("regist".equals(flag)) {
+			regist(req, resp);
+		}	
+	}
+	
+	private void regist(HttpServletRequest req, HttpServletResponse resp)
+	throws ServletException, IOException{
+		String name =req.getParameter("userName");
+		String password =req.getParameter("password");
+		String email =req.getParameter("email");
+		
+		UserInfo user = new UserInfo();
+		user.setUserName(name);
+		user.setPassword(password);
+		user.setEmail(email);
+		if(userInfoBizImpl.regist(user)){
+			resp.sendRedirect("regist_success.jsp");
+		}else {
+			resp.getWriter().write("error");
+		}
+	}
+	private void login(HttpServletRequest req, HttpServletResponse resp)
+	throws ServletException, IOException{
+		String userName =req.getParameter("userName");
+		String password = req.getParameter("password");
+		UserInfo userInfo = new UserInfo();
+		userInfo.setUserName(userName);
+		userInfo.setPassword(password);
+		if(userInfoBizImpl.login(userInfo) != null) {
+			HttpSession session = req.getSession();
+			session.setAttribute("userInfo", userInfo);
+			
+			resp.sendRedirect("book.do?flag=list");
+		}else {
+			resp.sendRedirect("login.jsp");
+		}
+  
+	}
+}

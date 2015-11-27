@@ -1,0 +1,25 @@
+package cn.zucc.day07;
+
+import java.util.Scanner;
+
+public class Test {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.print("请输入课程代号（1~3之间的数字）");
+		try {
+			ClassNum inNum = new ClassNum();
+			inNum.choice();	
+		} catch (Exception e) {
+			System.out.println("输入有误");
+			// TODO: handle exception
+		}
+		finally{
+			System.out.println("欢迎提出建议");
+		}
+	}
+
+}

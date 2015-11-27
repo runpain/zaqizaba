@@ -1,0 +1,7 @@
+package cn.zucc.controller;
+
+import javax.servlet.http.HttpServlet;
+
+public class ShoppingCarSevlet extends HttpServlet {
+
+}

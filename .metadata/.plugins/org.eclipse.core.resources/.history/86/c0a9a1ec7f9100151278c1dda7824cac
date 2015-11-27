@@ -1,0 +1,74 @@
+package cn.zucc.controller;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class ShoppingCarSevlet extends HttpServlet {
+
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doPost(req, resp);
+	}
+
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		/*String [] bids = req.getParameterValues("bid");
+		if(bids !=null && bids.length>0){
+			List<Books> bidlist = new ArrayList<Books>();
+			for(int i=0; i<bids.length ;i++ ){
+				Books books = bookService.findbookid(Integer.parseInt(bids[i]));
+				bidlist.add(books);
+			}
+		}*/
+		
+		String flag = req.getParameter("flag");
+		if("addcar".equals(flag)){
+		String[] booksid = req.getParameterValues("bid");
+		for(String bid : booksid){
+		Car car = new Car();
+		Books books = bookService.findbookid(Integer.parseInt(bid));
+		car.setBid(books.getBid());
+		car.setCount(1);
+	        car.setB_price(books.getB_price());
+		car.setBookname(books.getBookname());
+		car.setImage(books.getImage());
+		carService.addCar(car);
+	}resp.sendRedirect("shopping-success.jsp");
+		}if("carlist".equals(flag)){
+			List<Car> carslist = carService.findallcar();
+			req.setAttribute("carslist", carslist);
+			req.getRequestDispatcher("shopping.jsp").forward(req, resp);
+		}if("edit".equals(flag)){
+			int id =Integer.parseInt(req.getParameter("id"));
+			int bid = Integer.parseInt(req.getParameter("bid"));
+			String b_price = req.getParameter("b_price");
+			String bookname = req.getParameter("bookname");
+			String image = req.getParameter("image");
+			int count = Integer.parseInt(req.getParameter("count"));
+			Car car = new Car();
+			car.setId(id);
+			car.setBid(bid);
+			car.setBookname(bookname);
+			car.setB_price(b_price);
+			car.setCount(count);
+			car.setImage(image);
+			carService.deletecar(car);
+			req.getRequestDispatcher("shopping.do?flag=list").forward(req, resp);	
+		}
+
+	
+			
+		
+	}
+	
+	
+
+}

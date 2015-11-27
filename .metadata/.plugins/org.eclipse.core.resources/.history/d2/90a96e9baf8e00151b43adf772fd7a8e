@@ -1,0 +1,147 @@
+package cn.zucc.dao;
+
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import cn.zucc.entity.ShoppingCar;
+
+public class ShoppingCarBiz extends BaseBiz {
+	public void AddShoppingCar(ShoppingCar shoppingCar) {
+		try {
+			addressUrl();
+			String sql = "insert into shoppingcar(images,bookName,count,price) value(?,?,?,?)";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, shoppingCar.getImages());
+			psmt.setString(2, shoppingCar.getBookName());
+			psmt.setInt(3, shoppingCar.getCount());
+			psmt.setDouble(4, shoppingCar.getPrice());
+			System.out.println(psmt);
+			psmt.execute();
+		} catch (SQLException e) {
+			System.out.println("≤Â»Î ß∞‹");
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		finally{
+			myClose();
+		}
+	}
+	
+	public void DeleteById(int cid){
+		try {
+			addressUrl();
+			String sql = "delete from shoppingcar where cid =?";			
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, cid);
+			psmt.execute();	
+		} catch (SQLException e) {
+			System.out.println("…æ≥˝ ß∞‹");
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		finally{
+			myClose();
+		}
+	}
+	public ShoppingCar  UpdateUserInfo(ShoppingCar shoppingCar){
+		try {
+			addressUrl();
+			String sql = "update shoppingcar set imaes=?,bookName=?,count=?,price=? where cid =?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, shoppingCar.getImages());
+			psmt.setString(2, shoppingCar.getBookName());
+			psmt.setInt(3, shoppingCar.getCount());
+			psmt.setDouble(4, shoppingCar.getPrice());
+			psmt.setInt(5, shoppingCar.getCid());
+			System.out.println(psmt);
+			psmt.execute();	
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("∏¸–¬ ß∞‹");
+		}
+		finally{
+			myClose();
+		}
+		return shoppingCar;
+	}
+	
+	public ShoppingCar FindById(int cid){
+		ShoppingCar shoppingCar = new ShoppingCar();
+		try {
+			addressUrl();
+			String sql = "select * from shoppingcar where cid =?";	
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, cid);
+			rs = psmt.executeQuery();
+			if(rs.next()){
+				shoppingCar.setCid(rs.getInt("cid"));
+				shoppingCar.setBookName(rs.getString("bookName"));
+				shoppingCar.setCount(rs.getInt("count"));
+				shoppingCar.setImages(rs.getString("images"));
+				shoppingCar.setPrice(rs.getDouble("price"));
+			}
+		} catch (Exception e) {
+			System.out.println("≤È—Ø ß∞‹");
+			// TODO: handle exception
+		}
+		finally{
+			myClose();
+		}
+		return shoppingCar;
+	}
+	
+	public ShoppingCar FindByName(String bookName){
+		ShoppingCar shoppingCar = null;
+		try {
+			addressUrl();
+			String sql = "select * from shoppingcar where bookName=?";	
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, bookName);
+			rs = psmt.executeQuery();
+			if(rs.next()){
+				shoppingCar = new ShoppingCar();
+				shoppingCar.setCid(rs.getInt("cid"));
+				shoppingCar.setBookName(rs.getString("bookName"));
+				shoppingCar.setCount(rs.getInt("count"));
+				shoppingCar.setImages(rs.getString("images"));
+				shoppingCar.setPrice(rs.getDouble("price"));
+			}
+		} catch (Exception e) {
+			System.out.println("≤È—Ø ß∞‹");
+			// TODO: handle exception
+		}
+		finally{
+			myClose();
+		}
+		return shoppingCar;
+	 
+	}
+	public List<ShoppingCar>  FindAll(){
+		List<ShoppingCar> list=new ArrayList<ShoppingCar>();
+		try {
+			addressUrl();
+		String sql = "select * from shoppingcar ";
+		psmt = conn.prepareStatement(sql);
+		rs = psmt.executeQuery();
+		while(rs.next()){
+			ShoppingCar shoppingCar = new ShoppingCar();
+			shoppingCar.setCid(rs.getInt("cid"));
+			shoppingCar.setBookName(rs.getString("bookName"));
+			shoppingCar.setCount(rs.getInt("count"));
+			shoppingCar.setImages(rs.getString("images"));
+			shoppingCar.setPrice(rs.getDouble("price"));
+			list.add(shoppingCar);
+			}
+		}
+		catch (Exception e){
+			System.out.println(" ß∞‹");
+			// TODO: handle exception
+		}
+		finally{
+			myClose();
+		}
+		return list;
+	}
+}
+	

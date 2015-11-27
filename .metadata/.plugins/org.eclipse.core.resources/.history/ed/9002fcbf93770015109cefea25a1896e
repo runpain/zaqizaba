@@ -1,0 +1,17 @@
+package cn.zucc.day03;
+
+public class way {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Test mytest = new Test();
+		String myFruit = "Æ»¹û";
+		String myJuice = mytest.test(myFruit);
+		System.out.println(myJuice);
+	}
+
+}

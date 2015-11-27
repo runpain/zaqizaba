@@ -1,0 +1,13 @@
+package cn.zucc.day03;
+
+import cn.zucc.day02.classJava;
+
+public class Test {
+	public String test (String fruit){
+		String juice = fruit + "֭";
+		return juice;
+	}
+		
+	
+
+}

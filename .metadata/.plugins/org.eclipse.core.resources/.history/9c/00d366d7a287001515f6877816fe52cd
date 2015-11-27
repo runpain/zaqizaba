@@ -1,0 +1,38 @@
+package cn.zucc.controller;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import cn.zucc.entity.Topic;
+import cn.zucc.service.TopicAdd;
+
+public class TopicServlet extends HttpServlet {
+	TopicAdd topicAdd = new TopicAdd();
+
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doPost(req, resp);
+	}
+
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		
+		req.setCharacterEncoding("utf-8");
+		String name = req.getParameter("name");
+		Topic topic = new Topic();
+		topic.setName(name);
+		topicAdd.addtopic(topic);
+		resp.sendRedirect("admin.html");
+		
+	}
+	
+
+}

@@ -1,0 +1,12 @@
+package cn.zucc.day03;
+
+
+public class Test {
+	public String test (String fruit){
+		String juice = fruit + "֭";
+		return juice;
+	}
+		
+	
+
+}

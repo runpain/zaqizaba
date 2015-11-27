@@ -1,0 +1,26 @@
+package cn.zucc.day07;
+
+import java.text.ParseException;
+import java.util.Scanner;
+
+public class setAge {
+	Scanner inname = new Scanner(System.in );
+	int age = inname.nextInt();
+	
+
+public void inputNum() throws ParseException{
+	boolean flag=false;
+	System.out.print("输入0返回：");
+	do{
+	if(age >1&&age <100){
+		System.out.println("年龄为"+inname);
+	}
+	}while(flag);
+}
+
+
+private void setAge() {
+	// TODO Auto-generated method stub
+	
+}
+}

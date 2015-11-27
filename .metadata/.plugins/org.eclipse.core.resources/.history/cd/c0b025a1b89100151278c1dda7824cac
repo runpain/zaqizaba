@@ -1,0 +1,35 @@
+package cn.zucc.entity;
+
+public class ShoppingCar {
+	private int cid;
+	private int c_bid;
+	private int c_uid;
+	public int getCid() {
+		return cid;
+	}
+	public void setCid(int cid) {
+		this.cid = cid;
+	}
+	public int getC_bid() {
+		return c_bid;
+	}
+	public void setC_bid(int cBid) {
+		c_bid = cBid;
+	}
+	public int getC_uid() {
+		return c_uid;
+	}
+	public void setC_uid(int cUid) {
+		c_uid = cUid;
+	}
+	public ShoppingCar(int cUid) {
+		super();
+		c_uid = cUid;
+	}
+	public ShoppingCar() {
+		super();
+	}
+	
+	
+	
+}

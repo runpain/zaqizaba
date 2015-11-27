@@ -1,0 +1,37 @@
+package cn.zucc.service;
+
+import java.util.List;
+
+
+import cn.zucc.dao.ShoppingCarBiz;
+import cn.zucc.entity.ShoppingCar;
+
+
+public class ShoppingCarBizImpl {
+ShoppingCarBiz shoppingCarBiz = new ShoppingCarBiz();
+	
+	public void addShoppingCar(ShoppingCar shoppingCar){
+		shoppingCarBiz.AddShoppingCar(shoppingCar);
+	}
+	
+
+	public List<ShoppingCar> findAll() {
+		return shoppingCarBiz.FindAll();
+	}
+	
+	public ShoppingCar findById(int cid){
+		return shoppingCarBiz.FindById(cid);
+	}
+	
+	public ShoppingCar updateShoppingCar(ShoppingCar shoppingCar){
+		return shoppingCarBiz.UpdateShoppingCar(shoppingCar);
+	}
+	 
+	
+}
+
+	
+	
+	
+	
+	

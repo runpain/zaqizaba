@@ -1,0 +1,34 @@
+package cn.zucc.day02;
+
+import java.util.Scanner;
+
+public class javaif {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner input = new Scanner(System.in);
+		/*System.out.println("输入张浩的Java成绩");
+		int zhangScore = input.nextInt();
+		if (zhangScore > 90) {
+			System.out.println("老师说:不错，奖励一个MP4！");
+		}*/
+		int money = input.nextInt();
+		System.out.println("请输入存款:");
+		if (money > 500) {
+			System.out.println("我就买凯迪拉克");
+		}else if (money > 100){
+			System.out.println("我就买帕萨特");
+		}else if (money > 50) {
+			System.out.println("我就买依兰特");
+		}else if (money > 10) {
+			System.out.println("我就买奥拓");
+		}else {
+			System.out.println("我就买捷安特");
+		}
+		
+	}
+
+}

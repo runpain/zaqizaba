@@ -1,0 +1,39 @@
+package cn.zucc.day03;
+
+import java.util.Scanner;
+
+public class way {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		/*Test mytest = new Test();
+		String myFruit = "苹果";
+		String myJuice = mytest.test(myFruit);
+		System.out.println(myJuice);
+		
+		Test  st = new  Test();
+		Scanner input =  new Scanner(System.in);
+		for (int i = 0; i < 5; i++) {
+		System.out.println("请输入学生姓名：");
+		String newName= input.next();
+		st.addname(newName);
+		
+		}
+		st.showNames();
+		*/
+		
+		
+		Test ct = new Test();
+		Scanner input = new Scanner(System.in);
+		for (int i = 0; i < 4; i++) {
+			System.out.println("请输入客户的姓名：");
+			String newName = input.next();
+			ct.addname(newName);
+		}
+	}
+
+}

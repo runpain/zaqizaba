@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item value="275" key="DIALOG_WIDTH"/>
+		<item value="409" key="DIALOG_Y_ORIGIN"/>
+		<item value="1013" key="DIALOG_X_ORIGIN"/>
+		<item value="355" key="DIALOG_HEIGHT"/>
+		<item value="1|宋体|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|宋体" key="DIALOG_FONT_NAME"/>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item value="false" key="wrap"/>
+		<item value="false" key="casesensitive"/>
+		<item value="false" key="isRegEx"/>
+		<item value="false" key="incremental"/>
+		<item value="false" key="wholeword"/>
+		<item value="shoppingCarBiz." key="selection"/>
+		<list key="findhistory">
+			<item value="bookBiz."/>
+			<item value="id"/>
+			<item value="Press press"/>
+			<item value="pd."/>
+			<item value="press."/>
+			<item value=".html"/>
+			<item value="user "/>
+			<item value="user"/>
+		</list>
+		<list key="replacehistory">
+			<item value="shoppingCarBiz."/>
+			<item value="Book book"/>
+			<item value="bookBiz."/>
+			<item value="book."/>
+			<item value=".jsp"/>
+			<item value="userInfo."/>
+			<item value="UserInfo"/>
+			<item value=""/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.GotoLineAction$GotoLineDialog_dialogBounds">
+		<item value="338" key="DIALOG_Y_ORIGIN"/>
+		<item value="485" key="DIALOG_X_ORIGIN"/>
+	</section>
+</section>

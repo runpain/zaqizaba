@@ -1,0 +1,16 @@
+package cn.zucc.day03;
+
+
+public class Test {
+	/*public String test (String fruit){
+		String juice = fruit + "֭";
+		return juice;
+	}*/
+		String[]names = new String [30];
+		public void addname (String name){			
+		}
+	public void showNames(){
+		
+	}
+
+}
