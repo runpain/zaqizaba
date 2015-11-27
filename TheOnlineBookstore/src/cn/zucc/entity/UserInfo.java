@@ -1,0 +1,48 @@
+package cn.zucc.entity;
+
+public class UserInfo {
+	private String userName;
+	private int id;
+	private String password;
+	private String email;
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public UserInfo(int id) {
+		super();
+		this.id = id;
+	}
+	public UserInfo() {
+		super();
+	}
+	public UserInfo(String userName, String password) {
+		super();
+		this.userName = userName;
+		this.password = password;
+	}
+
+	
+	
+
+}

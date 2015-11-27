@@ -1,0 +1,61 @@
+package cn.zucc.controller;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import cn.zucc.dao.BookBiz;
+import cn.zucc.entity.Book;
+import cn.zucc.entity.ShoppingCar;
+import cn.zucc.entity.UserInfo;
+import cn.zucc.service.BookBizImpl;
+import cn.zucc.service.ShoppingCarBizImpl;
+import cn.zucc.service.UserInfoBizImpl;
+
+public class ShoppingCarSevlet extends HttpServlet {
+	
+	UserInfoBizImpl userInfoBizImpl = new UserInfoBizImpl();
+	BookBizImpl bookBizImpl = new BookBizImpl();
+	ShoppingCarBizImpl shoppingCarBizImpl = new ShoppingCarBizImpl();
+
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doPost(req, resp);
+	}
+
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		String flag = req.getParameter("flag");
+		if ("intocar".equals(flag)) {
+			HttpSession session = req.getSession();
+			UserInfo userInfo = (UserInfo) session.getAttribute("userInfo");
+			String[] bookId = req.getParameterValues("bookId");
+			ShoppingCar car = new ShoppingCar();  
+			for (String bid : bookId) {
+				Book book = bookBizImpl.findById(Integer.parseInt(bid));
+				car.setC_bid(book.getBid());
+				car.setC_uid(userInfo.getId());
+				shoppingCarBizImpl.addShoppingCar(car);
+				}
+			}
+			HttpSession session = req.getSession();
+			UserInfo userInfo = (UserInfo) session.getAttribute("userInfo");
+			int num = userInfo.getId();
+			List<ShoppingCar> carlist = shoppingCarBizImpl.findAll(num);
+			
+			req.setAttribute("carlist", carlist);
+			req.getRequestDispatcher("shopping.jsp").forward(req, resp);
+		}
+
+	}
+
