@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  
+   <servlet>
+    <servlet-name>regist001</servlet-name>
+    <servlet-class>cn.zucc.controller.regit001</servlet-class>
+   </servlet>
+    
+    <servlet-mapping>
+     <servlet-name>regist001</servlet-name>
+     <url-pattern>/regist001</url-pattern>
+    </servlet-mapping>
+  
+     <servlet-mapping>
+      <servlet-name>regist001</servlet-name>
+      <url-pattern>/login</url-pattern>
+     </servlet-mapping>
+     
+     <servlet>
+     	<servlet-name>TopicServlet</servlet-name>
+  		<servlet-class>cn.zucc.controller.TopicServlet</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+     	<servlet-name>TopicServlet</servlet-name>
+     	<url-pattern>/topic.do</url-pattern>
+    </servlet-mapping>
+    
+    
+    <servlet>
+    <servlet-name>PressSevlet</servlet-name>
+  	<servlet-class>cn.zucc.controller.PressSevlet</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+     <servlet-name>PressSevlet</servlet-name>
+     <url-pattern>/press.do</url-pattern>
+    </servlet-mapping>
+   
+   
+ <servlet>
+ <servlet-name>Comment</servlet-name>
+ <servlet-class>cn.zucc.controller.CommentSevlet</servlet-class>
+ </servlet>
+ 
+ <servlet-mapping>
+ <servlet-name>Comment</servlet-name>
+ <url-pattern>/comment</url-pattern>
+ </servlet-mapping>
+   
+   
+    <servlet>
+ <servlet-name>test</servlet-name>
+ <servlet-class>cn.zucc.controller.test</servlet-class>
+ </servlet>
+ 
+ <servlet-mapping>
+ <servlet-name>test</servlet-name>
+ <url-pattern>/test</url-pattern>
+ </servlet-mapping>
+   
+   <filter>
+   <filter-name>one</filter-name>
+   <filter-class>cn.zucc.filter.servletfilter</filter-class>
+   </filter>
+   <filter-mapping>
+   <filter-name>one</filter-name>
+   <url-pattern>/*</url-pattern>
+   </filter-mapping>
+   
+   <filter>
+   <filter-name>two</filter-name>
+   <filter-class>cn.zucc.filter.loginfilter</filter-class>
+   </filter>
+   <filter-mapping>
+   <filter-name>two</filter-name>
+   <url-pattern>*.do</url-pattern>
+   </filter-mapping>
+   
+
+
+
+
+</web-app>
